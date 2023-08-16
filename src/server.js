@@ -10,15 +10,16 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 app.post('/classify', async (req, res) => {
   try {
     const response = await axios.post(
-      'https://api.openai.com/v1/engines/davinci/completions',
+      'https://api.openai.com/v1/completions',
       {
+        model: "text-davinci-003",
         prompt: `Classify the following email:\n"${req.body.text}" into Interested, Not Interested, Follow-up later, Out of office, Other.`,
-        max_tokens: 1,
+        max_tokens: 10,
       },
       {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${OPENAI_API_KEY}`,
+          Authorization: `Bearer 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`,
         },
       }
     );

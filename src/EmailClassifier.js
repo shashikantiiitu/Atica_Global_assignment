@@ -10,9 +10,10 @@ const EmailClassifier = () => {
   const classifyEmail = async () => {
     try {
       const response = await axios.post(
-        'https://api.openai.com/v1/engines/davinci/completions', 
+        'https://api.openai.com/v1/completions', 
         {
           text: emailText,
+          
         }
       );
 
